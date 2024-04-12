@@ -1,7 +1,9 @@
 ﻿using System;
+using OnlineStore.Domain.Entities;
+
 namespace OnlineStore.Application.Repositories
 {
-    public interface IUserReposiory : IBaseRepository<Domain.Entities.User>
+    public interface IUserRepository : IBaseRepository<User>
     {
     }
 }

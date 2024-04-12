@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+ mssql:
+   image: 'mcr.microsoft.com/mssql/server'
+   ports:
+    - '1499:1433'
+   environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=SnappFood1234
+   volumes:
+    - mssql2:/var/opt/mssql
+
+volumes:
+ mssql2:

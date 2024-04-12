@@ -30,9 +30,7 @@ namespace OnlineStore.Application.Common
                 .ToArray();
 
             if (errors.Any())
-                return await next();
-
-            ///throw new Exce(errors);
+                throw new BadRequestException(errors);
 
             return await next();
         }
