@@ -1,4 +1,6 @@
-﻿using OnlineStore.Application;
+﻿using AspNetCoreRateLimit;
+using Microsoft.AspNetCore.Mvc;
+using OnlineStore.Application;
 using OnlineStore.Extensions;
 using OnlineStore.Infrastructure;
 using OnlineStore.Infrastructure.Context;
@@ -7,11 +9,14 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 builder.ConfigureLogger();
 
+
 builder.Services.ConfigureInfrastructure(builder.Configuration);
 builder.Services.ConfigureApplication();
 builder.Services.ConfigureApiBehavior();
 builder.Services.ConfigureCorsPolicy();
 builder.Services.AddControllers();
+builder.Services.ConfigureApiVersioning();
+builder.Services.ConfigureApiRateLimit();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -25,6 +30,7 @@ try
     var dataContext = serviceScope.ServiceProvider.GetService<DataContext>();
     dataContext?.Database.EnsureCreated();
 
+    app.UseIpRateLimiting();
     app.UseSwagger();
     app.UseSwaggerUI();
     app.UseErrorHandler();

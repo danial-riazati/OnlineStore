@@ -19,6 +19,7 @@
     <None Remove="Features\ProductFeatures\CreateProduct\" />
     <None Remove="Common\" />
     <None Remove="Features\ProductFeatures\UpdateProductInventoryCount\" />
+    <None Remove="Features\ProductFeatures\GetProduct\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
@@ -30,6 +31,7 @@
     <Folder Include="Features\ProductFeatures\CreateProduct\" />
     <Folder Include="Common\" />
     <Folder Include="Features\ProductFeatures\UpdateProductInventoryCount\" />
+    <Folder Include="Features\ProductFeatures\GetProduct\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.0" />

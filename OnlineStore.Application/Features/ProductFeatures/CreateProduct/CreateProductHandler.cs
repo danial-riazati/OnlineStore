@@ -25,10 +25,22 @@ namespace OnlineStore.Application.Features.ProductFeatures.CreateProduct
         public async Task<CreateProductResponse> Handle(CreateProductRequest request, CancellationToken cancellationToken)
         {
             var product = _mapper.Map<Product>(request);
+
             _productRepository.Create(product);
             await _unitOfWork.SaveChanges(cancellationToken);
+            SetInMemCache(product);
+
             var response = _mapper.Map<CreateProductResponse>(product);
             return response;
+        }
+
+
+        private void SetInMemCache(Product product)
+        {
+            var key = $"product_{product.Id}";
+            var cacheOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(30));
+
+            _memoryCache.Set(key, product, cacheOptions);
         }
     }
 }

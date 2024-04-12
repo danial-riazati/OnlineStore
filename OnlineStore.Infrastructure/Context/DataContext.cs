@@ -20,6 +20,10 @@ namespace OnlineStore.Infrastructure.Context
             modelBuilder.Entity<Product>()
                 .HasIndex(e => e.Title)
                 .IsUnique();
+
+            modelBuilder.Entity<User>()
+                .HasIndex(e => e.Name)
+                .IsUnique();
         }
     }
 }

@@ -2,7 +2,7 @@
 using FluentValidation;
 using OnlineStore.Application.Features.ProductFeatures.UpdateProductInventoryCount;
 
-namespace OnlineStore.Application.Features.ProductFeatures.CreateProduct
+namespace OnlineStore.Application.Features.ProductFeatures.UpdateProductInventoryCount
 {
     public class UpdateProductInventoryCountValidator : AbstractValidator<UpdateProductInventoryCountRequest>
     {

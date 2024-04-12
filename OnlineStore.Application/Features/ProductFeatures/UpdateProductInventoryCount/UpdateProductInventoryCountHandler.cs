@@ -14,12 +14,14 @@ namespace OnlineStore.Application.Features.ProductFeatures.UpdateProductInventor
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
+        private readonly IMemoryCache _memoryCache;
 
         public UpdateProductInventoryCountHandler(IUnitOfWork unitOfWork, IProductRepository productRepository, IMapper mapper, IMemoryCache memoryCache)
         {
             _unitOfWork = unitOfWork;
             _productRepository = productRepository;
             _mapper = mapper;
+            _memoryCache = memoryCache;
         }
 
         public async Task<UpdateProductInventoryCountResponse> Handle(UpdateProductInventoryCountRequest request, CancellationToken cancellationToken)
@@ -33,9 +35,16 @@ namespace OnlineStore.Application.Features.ProductFeatures.UpdateProductInventor
 
             _productRepository.Update(product);
             await _unitOfWork.SaveChanges(cancellationToken);
+            RemoveFromMemCache(product);
 
             var response = _mapper.Map<UpdateProductInventoryCountResponse>(product);
             return response;
+        }
+
+        private void RemoveFromMemCache(Product product)
+        {
+            var key = $"product_{product.Id}";
+            _memoryCache.Remove(key);
         }
     }
 }
