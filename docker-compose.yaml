@@ -10,6 +10,13 @@ services:
     - SA_PASSWORD=SnappFood1234
    volumes:
     - mssql2:/var/opt/mssql
-
+ 
+ onlinestore:
+   image: ${DOCKER_REGISTRY-}onlinestore
+   build:
+    context: .
+    dockerfile: OnlineStore/Dockerfile
+   ports:
+    - "5050:80"
 volumes:
  mssql2:
