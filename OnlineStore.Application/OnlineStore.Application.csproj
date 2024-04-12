@@ -9,4 +9,30 @@
   <ItemGroup>
     <ProjectReference Include="..\OnlineStore.Domain\OnlineStore.Domain.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Repositories\" />
+    <None Remove="Features\" />
+    <None Remove="Features\UserFeatures\" />
+    <None Remove="Features\ProductFeatures\" />
+    <None Remove="Features\OrderFeatures\" />
+    <None Remove="Features\OrderFeatures\CreateOrder\" />
+    <None Remove="Features\ProductFeatures\CreateProduct\" />
+    <None Remove="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+    <Folder Include="Features\" />
+    <Folder Include="Features\UserFeatures\" />
+    <Folder Include="Features\ProductFeatures\" />
+    <Folder Include="Features\OrderFeatures\" />
+    <Folder Include="Features\OrderFeatures\CreateOrder\" />
+    <Folder Include="Features\ProductFeatures\CreateProduct\" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
 </Project>

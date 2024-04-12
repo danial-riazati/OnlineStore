@@ -10,4 +10,12 @@
     <ProjectReference Include="..\OnlineStore.Domain\OnlineStore.Domain.csproj" />
     <ProjectReference Include="..\OnlineStore.Application\OnlineStore.Application.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Context\" />
+    <None Remove="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Context\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
 </Project>

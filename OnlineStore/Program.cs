@@ -1,12 +1,24 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using OnlineStore.Application;
 
-// Add services to the container.
+
+var builder = WebApplication.CreateBuilder(args);
+
+
+//builder.Services.ConfigurePersistence(builder.Configuration);
+builder.Services.ConfigureApplication();
+
 
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseAuthorization();
 
