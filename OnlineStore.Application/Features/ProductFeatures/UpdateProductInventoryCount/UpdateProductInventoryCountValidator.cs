@@ -1,16 +1,15 @@
 ﻿using System;
 using FluentValidation;
+using OnlineStore.Application.Features.ProductFeatures.UpdateProductInventoryCount;
 
 namespace OnlineStore.Application.Features.ProductFeatures.CreateProduct
 {
-    public class CreateProductValidator : AbstractValidator<CreateProductRequest>
+    public class UpdateProductInventoryCountValidator : AbstractValidator<UpdateProductInventoryCountRequest>
     {
-        public CreateProductValidator()
+        public UpdateProductInventoryCountValidator()
         {
             RuleFor(x => x.Title).NotEmpty().MaximumLength(40);
             RuleFor(x => x.InventoryCount).NotEmpty().GreaterThan(0);
-            RuleFor(x => x.Price).NotEmpty().GreaterThan(0);
-            RuleFor(x => x.Discount).NotEmpty().GreaterThanOrEqualTo(0).LessThan(100);
         }
     }
 }
