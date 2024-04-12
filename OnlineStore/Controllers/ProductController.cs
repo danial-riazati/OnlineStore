@@ -33,7 +33,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<UpdateProductInventoryCountResponse>> Get(Guid id, CancellationToken cancellationToken)
+    public async Task<ActionResult<GetProductResponse>> Get(Guid id, CancellationToken cancellationToken)
     {
         var response = await _mediator.Send(new GetProductRequest(Id: id), cancellationToken);
         return Ok(response);
