@@ -1,4 +1,10 @@
-# OnlineStore
+# OnlineStore - SnappFood Project 
+
+
+![image](https://github.com/danial-riazati/OnlineStore/assets/58943927/a6df5414-cdae-4cdf-bbc2-5ee93f064766)
+<br/>
+<br/>
+
 
 OnlineStore is a robust e-commerce platform developed using .NET 6 and adhering to Clean Architecture principles. The application is structured to ensure scalability, maintainability, and a clear separation of concerns through a series of interconnected projects.
 
