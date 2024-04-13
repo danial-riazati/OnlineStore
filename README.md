@@ -59,7 +59,7 @@ The solution leverages a range of technologies and design patterns:
 3. Use Docker Compose to build and start the services:
 ``` docker-compose up --build ```
 
-This will set up the entire application, including the database and the API service. The application should now be accessible at http://localhost:5000.
+This will set up the entire application, including the database and the API service. The application should now be accessible at http://localhost:5050.
 
 ### API Documentation
 Once the application is running, API documentation can be accessed via Swagger at http://localhost:5000/swagger.
