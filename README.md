@@ -6,7 +6,7 @@
 <br/>
 
 
-OnlineStore is a robust e-commerce platform developed using .NET 6 and adhering to Clean Architecture principles. The application is structured to ensure scalability, maintainability, and a clear separation of concerns through a series of interconnected projects.
+OnlineStore is developed using .NET 6 and adhering to Clean Architecture principles. The application is structured to ensure scalability, maintainability, and a clear separation of concerns through a series of interconnected projects.
 
 ## Project Structure
 
